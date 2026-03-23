@@ -394,7 +394,7 @@ const Hero: React.FC = () => {
             {/* Image Container */}
             <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/10 bg-gemini-card/50 backdrop-blur-sm shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
               <img 
-                src="/profile.jpeg" 
+                src="/public/profile.jpeg" 
                 alt="Edison Gavilanes" 
                 className="w-full h-full object-contain scale-110 opacity-90 hover:opacity-100 transition-all duration-500"
                 onError={(e) => {
