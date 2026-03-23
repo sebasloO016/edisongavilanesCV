@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
 </div>
           
           <div style="width: 130px; height: 130px; flex-shrink: 0; border-radius: 16px; overflow: hidden; border: 1px solid ${borderColor};">
-            <img src="/public/profile.jpeg" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" crossorigin="anonymous" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'800\\' height=\\'800\\' viewBox=\\'0 0 800 800\\'%3E%3Crect width=\\'800\\' height=\\'800\\' fill=\\'%23111827\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' font-family=\\'sans-serif\\' font-size=\\'100\\' fill=\\'%234b5563\\' text-anchor=\\'middle\\' dominant-baseline=\\'middle\\'%3EEG%3C/text%3E%3C/svg%3E'" />
+            <img src="/profile.jpeg" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" crossorigin="anonymous" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'800\\' height=\\'800\\' viewBox=\\'0 0 800 800\\'%3E%3Crect width=\\'800\\' height=\\'800\\' fill=\\'%23111827\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' font-family=\\'sans-serif\\' font-size=\\'100\\' fill=\\'%234b5563\\' text-anchor=\\'middle\\' dominant-baseline=\\'middle\\'%3EEG%3C/text%3E%3C/svg%3E'" />
           </div>
         </div>
 
@@ -394,11 +394,11 @@ const Hero: React.FC = () => {
             {/* Image Container */}
             <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/10 bg-gemini-card/50 backdrop-blur-sm shadow-2xl transform hover:scale-[1.02] transition-transform duration-500">
               <img 
-                src="/public/profile.jpeg" 
+                src="/profile.jpeg" 
                 alt="Edison Gavilanes" 
                 className="w-full h-full object-contain scale-110 opacity-90 hover:opacity-100 transition-all duration-500"
                 onError={(e) => {
-                  // Fallback if user hasn't uploaded profile.jpg yet
+                  // Fallback if user hasn't uploaded profile.jpeg yet
                   e.currentTarget.onerror = null; // Prevent infinite loop
                   e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Crect width='800' height='800' fill='%23111827'/%3E%3Ctext x='50%25' y='50%25' font-family='sans-serif' font-size='100' fill='%234b5563' text-anchor='middle' dominant-baseline='middle'%3EEG%3C/text%3E%3C/svg%3E";
                 }}
