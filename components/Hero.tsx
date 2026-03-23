@@ -351,21 +351,17 @@ const Hero: React.FC = () => {
             </a>
             
             {/* Animated Download Button */}
-            <button 
-              onClick={generatePDF}
-              disabled={isGenerating}
-              className="relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-gemini-primary focus:ring-offset-2 focus:ring-offset-gemini-dark group shadow-[0_0_20px_rgba(41,98,255,0.3)] hover:shadow-[0_0_30px_rgba(41,98,255,0.6)] transition-shadow duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+            <a 
+              href="/CV_Edison_Gavilanes oficial.pdf"
+              download="CV_Edison_Gavilanes_oficial.pdf"
+              className="relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full p-[2px] focus:outline-none focus:ring-2 focus:ring-gemini-primary focus:ring-offset-2 focus:ring-offset-gemini-dark group shadow-[0_0_20px_rgba(41,98,255,0.3)] hover:shadow-[0_0_30px_rgba(41,98,255,0.6)] transition-shadow duration-300"
             >
               <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#2962ff_0%,#d500f9_50%,#2962ff_100%)]" />
               <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gemini-dark px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl transition-all group-hover:bg-gemini-dark/80 gap-2">
-                {isGenerating ? (
-                  <Loader2 size={18} className="animate-spin text-gemini-accent" />
-                ) : (
-                  <Download size={18} className="group-hover:animate-bounce text-gemini-accent" />
-                )}
-                {isGenerating ? 'Generando...' : 'Descargar CV'}
+                <Download size={18} className="group-hover:animate-bounce text-gemini-accent" />
+                Descargar CV
               </span>
-            </button>
+            </a>
           </div>
 
           <div className="flex gap-6 justify-center lg:justify-start pt-8 text-gray-500">
