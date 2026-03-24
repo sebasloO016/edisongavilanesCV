@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Line, Sphere, Html } from '@react-three/drei';
 import * as THREE from 'three';
@@ -25,6 +25,8 @@ const ecuadorPoints = [
 ];
 
 const ambatoPos = toXY(-78.6, -1.2);
+
+const ecuadorShape = new THREE.Shape(ecuadorPoints.map(p => new THREE.Vector2(p[0], p[1])));
 
 const MapScene = () => {
   const groupRef = useRef<THREE.Group>(null);
@@ -55,7 +57,7 @@ const MapScene = () => {
       
       {/* Map Fill */}
       <mesh>
-        <shapeGeometry args={[new THREE.Shape(ecuadorPoints.map(p => new THREE.Vector2(p[0], p[1])))]} />
+        <shapeGeometry args={[ecuadorShape]} />
         <meshBasicMaterial color="#2962ff" transparent opacity={0.05} side={THREE.DoubleSide} />
       </mesh>
 

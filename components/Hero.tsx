@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Github, Linkedin, Download, Loader2 } from 'lucide-react';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 
 const Hero: React.FC = () => {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -10,6 +8,11 @@ const Hero: React.FC = () => {
   const generatePDF = async () => {
     setIsGenerating(true);
     try {
+      const [{ default: jsPDF }, { default: html2canvas }] = await Promise.all([
+        import('jspdf'),
+        import('html2canvas')
+      ]);
+
       const cvContainer = document.createElement('div');
       cvContainer.style.position = 'absolute';
       cvContainer.style.left = '-9999px';
