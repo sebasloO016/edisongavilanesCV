@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Stars, Float, PerspectiveCamera } from '@react-three/drei';
 import * as THREE from 'three';
@@ -22,32 +22,36 @@ const Particles = () => {
 
 const Points = () => {
   const count = 2000;
-  const positions = new Float32Array(count * 3);
-  const colors = new Float32Array(count * 3);
+  const { positions, colors } = useMemo(() => {
+    const positions = new Float32Array(count * 3);
+    const colors = new Float32Array(count * 3);
 
-  for (let i = 0; i < count; i++) {
-    const x = (Math.random() - 0.5) * 20;
-    const y = (Math.random() - 0.5) * 20;
-    const z = (Math.random() - 0.5) * 20;
-    positions[i * 3] = x;
-    positions[i * 3 + 1] = y;
-    positions[i * 3 + 2] = z;
+    for (let i = 0; i < count; i++) {
+      const x = (Math.random() - 0.5) * 20;
+      const y = (Math.random() - 0.5) * 20;
+      const z = (Math.random() - 0.5) * 20;
+      positions[i * 3] = x;
+      positions[i * 3 + 1] = y;
+      positions[i * 3 + 2] = z;
 
-    // Gemini colors: Blue, Purple, Cyan
-    const colorType = Math.random();
-    let r, g, b;
-    if (colorType < 0.33) { // Blue
-      r = 0.16; g = 0.38; b = 1.0;
-    } else if (colorType < 0.66) { // Purple
-      r = 0.83; g = 0.0; b = 0.97;
-    } else { // Cyan
-      r = 0.0; g = 0.89; b = 1.0;
+      // Gemini colors: Blue, Purple, Cyan
+      const colorType = Math.random();
+      let r, g, b;
+      if (colorType < 0.33) { // Blue
+        r = 0.16; g = 0.38; b = 1.0;
+      } else if (colorType < 0.66) { // Purple
+        r = 0.83; g = 0.0; b = 0.97;
+      } else { // Cyan
+        r = 0.0; g = 0.89; b = 1.0;
+      }
+
+      colors[i * 3] = r;
+      colors[i * 3 + 1] = g;
+      colors[i * 3 + 2] = b;
     }
-    
-    colors[i * 3] = r;
-    colors[i * 3 + 1] = g;
-    colors[i * 3 + 2] = b;
-  }
+
+    return { positions, colors };
+  }, []);
 
   return (
     <points>
